@@ -1,0 +1,12 @@
+<nav id="parent" *ngIf="countries">
+  <div class="nav-item dropdown left">
+    <a data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+       aria-expanded="false"> <i class="fa fa-globe" aria-hidden="true"></i></a>
+    <div class="dropdown-menu">
+      <input type="text" style="" placeholder="Search.." id="myInput" [(ngModel)]="search">
+      <a class="dropdown-item" *ngFor="let country of countries | countrySearch : search"
+         (click)="select(country)">{{country.name+"("+country.phoneCode+")"}}</a>
+    </div>
+  </div>
+  <p class="right" style="padding-right: 10px;" *ngIf="selected">{{selected.name}}</p>
+</nav>

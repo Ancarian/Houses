@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm">
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2" *ngFor="let control of settings">
+      <label for="{{control.value + control.additionalTitle}}" class="control-label required">{{control.value + ' ' +
+        control.additionalTitle}}</label>
+      <input type="text" id="{{control.value + control.additionalTitle}}" class="form-control"
+             formControlName="{{control.value + control.additionalTitle}}"/>
+    </div>
+    <app-field-error-display class="col-md-8 offset-md-2"
+                             [displayError]="loginForm.invalid" errorMsg="incorrect values">
+    </app-field-error-display>
+    <div class="offset-md-2 col-md-4" style="margin-top: 5px">
+      <button type="submit" class="btn btn-outline-success" (click)="submit()" [disabled]="loginForm.invalid">submit
+      </button>
+    </div>
+    <div class="col-md-4" style="margin-top: 5px">
+
+      <button type="submit" class="btn btn-outline-success" (click)="clear()">clear
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,61 @@
+<div class="" style="">
+  <form [formGroup]="loginForm">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="title" class="control-label required">title</label>
+        <input type="text" id="title" class="form-control" formControlName="title"/>
+      </div>
+      <div class="col-md-6">
+        <label for="information" class="control-label required">information</label>
+        <input type="text" id="information" class="form-control" formControlName="information"/>
+      </div>
+      <div class="col-md-6">
+        <label for="price" class="control-label required">price</label>
+        <input type="text" id="price" class="form-control" formControlName="price"/>
+      </div>
+      <div class="col-md-6">
+        <label for="roomsCount" class="control-label required">roomsCount</label>
+        <input type="text" id="roomsCount" class="form-control" formControlName="roomsCount"/>
+      </div>
+      <div class="col-md-6">
+        <label for="buildingType">Post types</label>
+        <select class="form-control" id="buildingType" formControlName="buildingType">
+          <option *ngFor="let buildingType of buildingTypes" [value]="buildingType">{{buildingType}}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="postType">Building types</label>
+        <select class="form-control" id="postType" formControlName="postType">
+          <option *ngFor="let postType of postTypes" [value]="postType">{{postType}}</option>
+        </select>
+      </div>
+      <div class="col-md-12">
+        <label for="adress" class="control-label required">adress</label>
+        <input type="text" id="adress" class="form-control" formControlName="adress"/>
+      </div>
+      <div class="col-md-12">
+        <app-cities (reseted)="reset($event)" (voted)="onChangeCity($event)"></app-cities>
+      </div>
+    </div>
+
+    <app-field-error-display [displayError]="isControlInvalid('title')" errorMsg="incorrect title">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isControlInvalid('information')" errorMsg="incorrect information">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isControlInvalid('price')" errorMsg="incorrect price">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isControlInvalid('roomsCount')" errorMsg="incorrect roomsCount">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isControlInvalid('postType')" errorMsg="incorrect postType">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isControlInvalid('buildingType')" errorMsg="incorrect buildingType">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isControlInvalid('adress')" errorMsg="input your adress">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isControlInvalid('cityId')" errorMsg="input your city">
+    </app-field-error-display>
+
+    <button type="submit" class="btn btn-success" (click)="onSubmit()">submit
+    </button>
+  </form>
+</div>

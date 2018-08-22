@@ -1,0 +1,15 @@
+<nav class="parent">
+  <app-countries class="left" (voted)="onChangeCountry($event)"></app-countries>
+  <div *ngIf="states " class="parent">
+    <div class="nav-item dropdown left">
+      <a data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+         aria-expanded="false"> <i class="fa fa-building"></i></a>
+      <div class="dropdown-menu">
+        <input type="text" style="" placeholder="Search.." id="myInput" [(ngModel)]="search">
+        <a class="dropdown-item" *ngFor="let state of states | nameSearch : search"
+           (click)="select(state)">{{state.name}}</a>
+      </div>
+    </div>
+    <p class="right" style="padding-right: 10px;" *ngIf="selected">{{selected.name}}</p>
+  </div>
+</nav>

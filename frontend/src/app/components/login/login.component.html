@@ -1,0 +1,19 @@
+<div class="sign-container">
+  <app-logo></app-logo>
+  <form [formGroup]="loginForm">
+    <label for="email" class="control-label required">email</label>
+    <input type="text" id="email" class="form-control" formControlName="email"/>
+    <label for="password" class="control-label required">password</label>
+    <input type="text" id="password" class="form-control" formControlName="password"/>
+    <br>
+    <app-field-error-display [displayError]="isControlInvalid('email')" errorMsg="incorrect email">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isControlInvalid('password')" errorMsg="incorrect password">
+    </app-field-error-display>
+    <app-field-error-display [displayError]="isEmailOrPasswordIncorrect" errorMsg="email or password incorrect">
+    </app-field-error-display>
+    <button type="submit" class="btn btn-success center" (click)="onSubmit()" [disabled]="!loginForm.valid">submit
+    </button>
+    Don't have an account? <a [routerLink]="['../sign-up']">Sign up</a>
+  </form>
+</div>

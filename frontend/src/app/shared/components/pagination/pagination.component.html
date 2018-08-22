@@ -1,0 +1,19 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+
+
+    <li *ngIf="!first" (click)="setPage(0)" class="page-item"><a class="page-link"><i
+      class="fa fa-step-backward"></i></a>
+
+    <li *ngIf="!first" (click)="setPage(number-1)" class="page-item"><a class="page-link"><i
+      class="fa fa-angle-left"></i></a>
+    <li class="page-item" *ngFor="let page of numberRange(number)">
+      <a (click)="setPage(page - 1)" [ngClass]="{'violet-background': number == page - 1}"
+         class="page-link">{{page}}</a>
+    </li>
+    <li *ngIf="!last" class="page-item"
+        (click)="setPage(number+1)"><a class="page-link"><i class="fa fa-angle-right"></i></a></li>
+    <li *ngIf="!last" class="page-item"
+        (click)="setPage(totalPages-1)"><a class="page-link"><i class="fa fa-step-forward"></i></a></li>
+  </ul>
+</nav>

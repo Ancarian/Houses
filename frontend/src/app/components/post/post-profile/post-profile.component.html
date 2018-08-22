@@ -1,0 +1,31 @@
+<div *ngIf="post">
+
+  <app-post-list-element [post]="post"></app-post-list-element>
+  <hr>
+  <p>{{ post.information }}</p>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" *ngIf="post.urlOfimages.length != 0">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators"
+          *ngFor="let i of post.urlOfimages.slice(1,  post.urlOfimages.length)"></li>
+
+
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="" src={{post.urlOfimages[0]}} alt="Second slide">
+      </div>
+      <div class="carousel-item" *ngFor="let url of post.urlOfimages.slice(1,  post.urlOfimages.length)">
+        <img class="" src={{url}}>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>

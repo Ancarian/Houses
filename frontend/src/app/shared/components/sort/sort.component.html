@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="custom-control custom-radio" *ngFor="let control of settings">
+      <input type="radio" id="{{control.value + ' ' + control.type}}" name="customRadio" class="custom-control-input"
+             (click)="setPage(control)"/>
+      <label class="custom-control-label" for="{{control.value + ' ' + control.type}}">{{control.value + ' ' +
+        control.type}}</label>
+    </div>
+  </div>
+</div>
+
+

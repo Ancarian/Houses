@@ -1,0 +1,22 @@
+<div class="index">
+  <div class="centralize">
+    <button type="button" *ngIf="!getService().getToken()" [routerLink]="['login']"
+            class="btn btn-outline-success btn-lg">Login
+    </button>
+
+
+    <button type="button" *ngIf="!getService().getToken()" [routerLink]="['sign-up']"
+            class="btn btn-outline-success btn-lg">SignUp
+    </button>
+
+    <button class="btn btn-outline-success btn-lg" *ngIf="getService().getToken()" [routerLink]="['me']">Me</button>
+    <button class="btn btn-outline-success btn-lg" *ngIf="getService().getToken()" [routerLink]="['me/settings']">
+      Settings
+    </button>
+    <button class="btn btn-outline-success btn-lg" *ngIf="getService().getToken()" [routerLink]="['me/posts']">My
+      posts
+    </button>
+    <button class="btn btn-outline-success btn-lg" [routerLink]="['posts']">All posts</button>
+  </div>
+
+</div>

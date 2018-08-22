@@ -1,0 +1,30 @@
+<header>
+
+  <nav class="container navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <app-logo class="navbar-nav mr-auto"></app-logo>
+
+      <div class="form-inline my-2 my-lg-0 ">
+        <div class="collapse navbar-collapse form-inline">
+          <ul class="nav navbar-nav" id="navbarContent">
+            <li class="nav-item dropdown dropleft glyphicon glyphicon-th-list">
+              <a data-toggle="dropdown" class="white" href="#" role="button" aria-haspopup="true"
+                 aria-expanded="false"> <i class="fa fa-align-justify" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" *ngIf="getService().getToken()" [routerLink]="['me']">Me</a>
+                <a class="dropdown-item" *ngIf="getService().getToken()" [routerLink]="['me/settings']">Settings</a>
+                <a class="dropdown-item" *ngIf="getService().getToken()" [routerLink]="['me/posts']">My posts</a>
+                <a class="dropdown-item" [routerLink]="['posts']">All posts</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" *ngIf="getService().getToken()" (click)="logout()">Logout</a>
+                <a class="dropdown-item" *ngIf="!getService().getToken()" [routerLink]="['login']">Login</a>
+                <a class="dropdown-item" *ngIf="!getService().getToken()" [routerLink]="['sign-up']">SignUp</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

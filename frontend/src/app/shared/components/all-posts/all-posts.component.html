@@ -1,0 +1,65 @@
+<div class="row">
+
+  <div class="col">
+    <app-sort [settings]="sortSettings"></app-sort>
+    <app-filtration [settings]="settings"></app-filtration>
+  </div>
+  <div class="col">
+
+    <div style="margin:0 auto">
+      <ngx-datatable style="margin:0 auto; display: table"
+                     #table
+                     class="material"
+                     [rows]="posts.content"
+                     [columns]="columns"
+                     [columnMode]="'standard'"
+                     [headerHeight]="50"
+                     [footerHeight]="50"
+                     [rowHeight]="'auto'">
+        <ngx-datatable-column>
+          <ng-template let-column="Title" ngx-datatable-header-template>
+            Title
+          </ng-template>
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <a [routerLink]="['/post/'+row.id]">{{row.title}}</a>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column [name]="col.name" *ngFor="let col of columns">
+          <ng-template let-value="value" let-expanded="expanded" let-row="row" ngx-datatable-cell-template>
+            {{value }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <div *ngIf="isShow">
+          <ngx-datatable-column [width]="25">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <app-edit-post-button [post]="row" (updated)="isUpdated($event)"></app-edit-post-button>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column [width]="25">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <app-delete-post-button [post]="row" (deleted)="deleted()"></app-delete-post-button>
+            </ng-template>
+          </ngx-datatable-column>
+        </div>
+        <ngx-datatable-footer>
+          <ng-template
+            let-rowCount="rowCount"
+            let-pageSize="pageSize"
+            let-selectedCount="selectedCount"
+            let-curPage="curPage"
+            let-offset="offset"
+            ngx-datatable-footer-template>
+            <app-pagination style="margin:10px auto" *ngIf="posts.content.length != 0" [first]="posts.first"
+                            [last]="posts.last"
+                            [totalPages]="posts.totalPages"
+                            [number]="posts.number"></app-pagination>
+          </ng-template>
+        </ngx-datatable-footer>
+      </ngx-datatable>
+
+    </div>
+  </div>
+</div>

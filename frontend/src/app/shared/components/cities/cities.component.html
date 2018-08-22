@@ -1,0 +1,18 @@
+<nav class="parent cities-container">
+  <app-states class="left" (showed)="onShowed($event)" (voted)="onChangeState($event)"></app-states>
+
+
+  <div *ngIf="cities" class="parent">
+    <div class="nav-item dropdown left">
+      <a data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+         aria-expanded="false"> <i class="fa fa-home"></i>
+      </a>
+      <div class="dropdown-menu">
+        <input type="text" style="" placeholder="Search.." id="myInput" [(ngModel)]="search">
+        <a class="dropdown-item" *ngFor="let city of cities | nameSearch : search"
+           (click)="select(city)">{{city.name}}</a>
+      </div>
+    </div>
+    <p class="right" *ngIf="selected">{{selected.name}}</p>
+  </div>
+</nav>

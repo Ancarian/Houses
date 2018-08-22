@@ -1,0 +1,23 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" [routerLink]="['posts']" role="tab" aria-controls="profile"
+       aria-selected="false">Posts</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" [routerLink]="['settings']" aria-controls="contact"
+       aria-selected="false">Settings</a>
+  </li>
+</ul>
+<div class="tab-content">
+
+  {{user.name +" "+ user.lastname}}
+
+  <app-edit-post-button [post]="null" (updated)="save($event)"></app-edit-post-button>
+  create new post
+  <br>
+  <br>
+  <router-outlet></router-outlet>
+</div>
+
+
+

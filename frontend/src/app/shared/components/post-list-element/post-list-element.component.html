@@ -1,0 +1,13 @@
+<div>
+  <h3><a [routerLink]="['/post/'+post.id]">{{ post.title + "(" + post.buildingType + ", " + post.postType + ")"}} Price:
+    {{ post.price }}</a></h3>
+  <p>
+    <i class="fa fa-location-arrow"></i> {{post.adress.country + ", " + post.adress.state + ", " + post.adress.city +
+    "," + post.adress.adress}}
+    <br>
+    <i class="fa fa-phone"></i> {{post.user.phone + ", " + post.user.email + "(" + post.user.name + " " +
+    post.user.lastname + ")"}}
+    <br>
+    count of rooms: {{post.roomsCount}}
+  </p>
+</div>
