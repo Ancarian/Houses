@@ -1,5 +1,5 @@
 # Houses
-
+<a href="https://codeclimate.com/github/Ancarian/Houses/maintainability"><img src="https://api.codeclimate.com/v1/badges/c9ba1eb59c78105afef5/maintainability" /></a>
 ## Backend
 
 ### Stack of technologies on the backend side
