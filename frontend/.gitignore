@@ -2,7 +2,6 @@
 
 # compiled output
 /dist
-/dist-server
 /tmp
 /out-tsc
 
@@ -10,6 +9,7 @@
 /node_modules
 
 # IDEs and editors
+.vscode/
 /.idea
 .project
 .classpath
@@ -31,7 +31,6 @@
 /coverage
 /libpeerconnection.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
