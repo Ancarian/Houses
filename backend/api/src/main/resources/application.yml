@@ -16,22 +16,20 @@ pageable.size: 10
 
 spring:
   jpa:
-    generate-ddl: true
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.MySQL5Dialect
         naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-        show_sql: false
-        format_sql: false
+        show_sql: true
+        format_sql: true
         hibernate.hbm2ddl.import_files: import.sql
         jdbc:
           lob:
             non_contextual_creation: true
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:8000/testDBB
-    username: postgres
-    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3310/houses
+    username: houses
+    password: houses
