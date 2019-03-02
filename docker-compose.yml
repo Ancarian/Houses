@@ -3,22 +3,22 @@ services:
   frontend:
     build: frontend
     ports:
-     - 4200:80
+      - "4200:80"
   backend:
     build: backend
     ports:
-     - 8081:8081
+      - "8081:8081"
+    depends_on:
+      - mysql
     links:
-     - mysql
+      - mysql:mysql
   mysql:
-   image: mysql:8.0
-   restart: always
-   container_name: db-mysql
-   ports:
-    - 3310:3306
-   environment:
-     MYSQL_DATABASE: houses
-     MYSQL_ROOT_PASSWORD: houses
-     MYSQL_USER: houses
-     MYSQL_PASSWORD: houses
-     
+    image: mysql:8.0
+    restart: always
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_DATABASE: houses
+      MYSQL_ROOT_PASSWORD: houses
+      MYSQL_USER: houses
+      MYSQL_PASSWORD: houses

@@ -17,4 +17,6 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 EXPOSE 8081
 COPY . /app
 WORKDIR /app
+RUN ["mvn", "clean", "install"]
+WORKDIR /app/api
 CMD ["mvn", "spring-boot:run"]
